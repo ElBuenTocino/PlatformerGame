@@ -1,3 +1,8 @@
+Pau Martínez Mayor = ElBuenTocino
+Judith Chica Marques = Judichima
+Sergio Alejandre = serar3
+Emma Calvo Jordra = 
+
 ## Delivery 01 - $(Game Title)
 
 ![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
