@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay.unity
     guid: c8deaa42de0829246b123912a3c5d26f
   - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: c916d2cf31f21704d8293df6748ee69f
+  - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: b8be3be2bfe13624187950aaee3229b9
-  - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: db184c5812bc60f4f99aa5f10ffb979d
-  - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2c3a71af80d3dc2449c75c75a15fed5a,
       type: 3}
