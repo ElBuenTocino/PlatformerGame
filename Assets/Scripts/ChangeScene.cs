@@ -20,7 +20,7 @@ public class ChangeScene : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Gameplay_02");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void QuitGame()
