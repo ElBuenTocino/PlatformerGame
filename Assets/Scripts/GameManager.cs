@@ -14,6 +14,6 @@ public class GameManager : MonoBehaviour {
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Lose");
     }
 }
