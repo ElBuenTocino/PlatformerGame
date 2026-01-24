@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerJumper : MonoBehaviour
 {
@@ -28,11 +29,13 @@ public class PlayerJumper : MonoBehaviour
     private void OnEnable()
     {
         PowerUp.OnPowerUpCollected += AcquirePowerUp;
+        Door.OnDoorCollision += DoorCollision;
     }
 
     private void OnDisable()
     {
         PowerUp.OnPowerUpCollected -= AcquirePowerUp;
+        Door.OnDoorCollision -= DoorCollision;
     }
     
     void Start()
@@ -127,5 +130,10 @@ public class PlayerJumper : MonoBehaviour
     public void AcquirePowerUp(PowerUp powerUp)
     {
         JumpHeight *= 2f;
+    }
+
+    public void DoorCollision(Door door)
+    {
+        SceneManager.LoadScene("Win");
     }
 }
