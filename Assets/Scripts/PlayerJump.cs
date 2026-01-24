@@ -15,6 +15,8 @@ public class PlayerJumper : MonoBehaviour
     public float WallSlideSpeed = 1;
     public ContactFilter2D filter;
 
+    public AudioClip jumpSFX;
+
     private Rigidbody2D rigidbody;
     private CollisionDetection collisionDetection;
     private float lastVelocityY;
@@ -60,6 +62,7 @@ public class PlayerJumper : MonoBehaviour
             rigidbody.linearVelocity = velocity;
             jumpStartedTime = Time.time;
             jumpCount--;
+            AudioManager.Instance.Play(jumpSFX);
         }
     }
 
