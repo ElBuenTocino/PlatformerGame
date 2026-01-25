@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-        
-    void Update()
+    private PlayerInput playerInput;
+    private void Start()
     {
-         
+        playerInput = GetComponent<PlayerInput>();
     }
 
     public void StartGame()
@@ -36,6 +36,7 @@ public class ChangeScene : MonoBehaviour
 
     void OnEnter(InputValue value)
     {
+        Debug.Log("ILY");
         if (value.isPressed == true)
         {
             if (SceneManager.GetActiveScene().name == "Win")
@@ -48,7 +49,7 @@ public class ChangeScene : MonoBehaviour
                 LoadTitle();
             }
 
-            if (SceneManager.GetActiveScene().name == "Title")
+            if (SceneManager.GetActiveScene().name == "Title" || SceneManager.GetActiveScene().name == "Lose")
             {
                 StartGame();
             }
