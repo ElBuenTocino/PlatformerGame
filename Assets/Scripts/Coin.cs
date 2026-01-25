@@ -6,9 +6,13 @@ public class Coin : MonoBehaviour {
 
     public static Action<Coin> OnCoinCollected;
 
+    public AudioClip CoinSFX;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         OnCoinCollected?.Invoke(this);
+
+        AudioManager.Instance.Play(CoinSFX);
 
         Destroy(gameObject);
     }
