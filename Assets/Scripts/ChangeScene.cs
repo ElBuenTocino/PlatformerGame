@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     private PlayerInput playerInput;
+
+    void Awake()
+    {
+        var input = GetComponent<PlayerInput>();
+        input.enabled = true;
+        input.ActivateInput();
+    }
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        Debug.Log("PlayerInput active: " + GetComponent<PlayerInput>().enabled);
     }
 
     public void StartGame()
@@ -25,16 +34,16 @@ public class ChangeScene : MonoBehaviour
         Application.Quit();
     }
 
-    void OnEscape(InputValue value)
+    public void OnEscape(InputValue value)
     {
-        if (value.isPressed == true) 
+        if (value.isPressed == true)
         {
             Debug.Log("furula?");
             QuitGame();
         }
     }
 
-    void OnEnter(InputValue value)
+    public void OnEnter(InputValue value)
     {
         Debug.Log("ILY");
         if (value.isPressed == true)
@@ -49,8 +58,14 @@ public class ChangeScene : MonoBehaviour
                 LoadTitle();
             }
 
-            if (SceneManager.GetActiveScene().name == "Title" || SceneManager.GetActiveScene().name == "Lose")
+            if (SceneManager.GetActiveScene().name == "Title")
             {
+                StartGame();
+            }
+
+            if (SceneManager.GetActiveScene().name == "Lose")
+            {
+                Debug.Log("Is In Lose");
                 StartGame();
             }
         }
