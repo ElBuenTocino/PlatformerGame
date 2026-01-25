@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using System;
 
-
 public class PowerUp : MonoBehaviour
 {
     public static Action<PowerUp> OnPowerUpCollected;
-    
+
+    public AudioClip PowerUpSFX;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         OnPowerUpCollected?.Invoke(this);
+
+        AudioManager.Instance.Play(PowerUpSFX);
 
         Destroy(gameObject);
     }
