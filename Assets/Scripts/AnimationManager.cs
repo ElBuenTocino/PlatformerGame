@@ -6,22 +6,22 @@ using UnityEngine.Windows;
 public class AnimationManager : MonoBehaviour
 {
     public Sprite[] IdleSprites, WalkingSprites;
-    private bool FacingRight, IsMoving;
-    private SpriteRenderer SpriteRenderer;
-    private float Timer;
-    private int WalkingIndex = 0, IdleIndex = 0; // To know on which point of the array the animation is
+    private bool facingRight, isMoving;
+    private SpriteRenderer spriteRenderer;
+    private float timer;
+    private int walkingIndex = 0, idleIndex = 0; // To know on which point of the array the animation is
     private CollisionDetection collisionDetection;
 
     void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         collisionDetection = GetComponent<CollisionDetection>();
     }
 
     void Update()
     {
-        SpriteRenderer.flipX = !FacingRight;
-        if (IsMoving)
+        spriteRenderer.flipX = !facingRight;
+        if (isMoving)
         {
             Walking();
         }
@@ -37,48 +37,48 @@ public class AnimationManager : MonoBehaviour
 
         var inputVal = value.Get<Vector2>();
 
-        IsMoving = inputVal.x != 0;
+        isMoving = inputVal.x != 0;
 
         if (inputVal.x > 0)
         {
-            FacingRight = true;
+            facingRight = true;
         }
         if (inputVal.x < 0)
         {
-            FacingRight = false;
+            facingRight = false;
         }
 
     }
 
     void Walking()
     {
-        float TimeToChangeSprite = 0.1f;
-        Timer += Time.deltaTime;
-        if (Timer > TimeToChangeSprite)
+        float timeToChangeSprite = 0.1f;
+        timer += Time.deltaTime;
+        if (timer > timeToChangeSprite)
         {
-            WalkingIndex++;
-            if (WalkingIndex >= WalkingSprites.Length)
+            walkingIndex++;
+            if (walkingIndex >= WalkingSprites.Length)
             {
-                WalkingIndex = 0;
+                walkingIndex = 0;
             }
-            SpriteRenderer.sprite = WalkingSprites[WalkingIndex];
-            Timer = 0;
+            spriteRenderer.sprite = WalkingSprites[walkingIndex];
+            timer = 0;
         }
     }
 
     void Idle()
     {
-        float TimeToChangeSprite = 0.5f;
-        Timer += Time.deltaTime;
-        if (Timer > TimeToChangeSprite)
+        float timeToChangeSprite = 0.5f;
+        timer += Time.deltaTime;
+        if (timer > timeToChangeSprite)
         {
-            IdleIndex++;
-            if (IdleIndex >= IdleSprites.Length)
+            idleIndex++;
+            if (idleIndex >= IdleSprites.Length)
             {
-                IdleIndex = 0;
+                idleIndex = 0;
             }
-            SpriteRenderer.sprite = IdleSprites[IdleIndex];
-            Timer = 0;
+            spriteRenderer.sprite = IdleSprites[idleIndex];
+            timer = 0;
         }
     }
 }
