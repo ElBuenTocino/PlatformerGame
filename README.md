@@ -1,28 +1,24 @@
-Pau Martínez Mayor = ElBuenTocino
-Judith Chica Marques = Judichima
-Sergio Alejandre = serar3
-Emma Calvo Jordra = 
-
 ## Delivery 01 - $(Game Title)
 
 ![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
 
 ### Description
 
-$(Your Game Description)
+$Collect all the coins and get to the door as you play as a little alien.
 
 ### Features
 
- - $(Game Feature 01)
- - $(Game Feature 02)
- - $(Game Feature 03)
+ - $Jump and double jump!
+ - $Collect Coins
+ - $Jump Power-Up!
 
 ### Controls
 
 Keyboard:
- - $(Game Control 01)
- - $(Game Control 02)
- - $(Game Control 03)
+ - $WASD or Arrows -> Movement
+ - $SpaceBar -> Jump
+ - $Enter -> Continue
+ - $Escape -> Exit Game
 
 ### Screenshots
 
@@ -30,9 +26,10 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 ### Developers
 
- - $(Developer 01) - $(Role/Tasks Developed)
- - $(Developer 02) - $(Role/Tasks Developed)
- - $(Developer 03) - $(Role/Tasks Developed)
+ - $Sergio Alejandre Sarmiento // [serar3]([url](https://github.com/serar3))  - $(Role/Tasks Developed)
+ - $Emma Calvo Jodra // [emmaclv7]([url](https://github.com/emmaclv7)) - $(Role/Tasks Developed)
+ - $Judith Chica Marques // [Judichima]([url](https://github.com/Judichima)) - $(Role/Tasks Developed)
+ - $Pau Martínez Mayor // [ElBuenTocino]([url](https://github.com/ElBuenTocino)) - $(Role/Tasks Developed)
 
 ### Links
 
@@ -46,4 +43,4 @@ This game sources are licensed under MIT license. Check [LICENSE](LICENSE) for f
 
 $(Additional Licenses)
 
-*Copyright (c) $(Year) $(Developers Names)*
+*Copyright (c) $(Year) $(Sergio Alejandre Sarmiento, Emma Calvo Jodra, Judith Chica Marques, Pau Martínez Mayor)*
