@@ -3,16 +3,16 @@
 public class CollisionDetection : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask WhatIsGround;
+    private LayerMask whatIsGround;
     [SerializeField]
-    private LayerMask WhatIsPlatform;
+    private LayerMask whatIsPlatform;
 
     [SerializeField]
-    private Transform GroundCheckPoint;
+    private Transform groundCheckPoint;
     [SerializeField]
-    private Transform FrontCheckPoint;
+    private Transform frontCheckPoint;
     [SerializeField]
-    private Transform RoofCheckPoint;
+    private Transform roofCheckPoint;
 
     public Transform CurrentPlatform;
 
@@ -46,16 +46,13 @@ public class CollisionDetection : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(GroundCheckPoint.position, checkRadius);
-        Gizmos.DrawWireSphere(FrontCheckPoint.position, checkRadius);
+        Gizmos.DrawWireSphere(groundCheckPoint.position, checkRadius);
+        Gizmos.DrawWireSphere(frontCheckPoint.position, checkRadius);
         Gizmos.color = Color.white;
     }
 
     void FixedUpdate()
     {
-        // NOTE: Physics are recommended to be updated at fixed time steps
-        // so logic is added to FixedUpdate() method
-
         CheckCollisions();
         CheckDistanceToGround();
     }
@@ -65,47 +62,40 @@ public class CollisionDetection : MonoBehaviour
         CheckGrounded();
         CheckPlatformed();
         CheckFront();
-        //CheckRoof();          // Enable check once a RoofCheckPoint has been set!
     }
 
     private void CheckFront()
     {
-        var colliders = Physics2D.OverlapCircleAll(FrontCheckPoint.position, checkRadius, WhatIsGround);
+        var colliders = Physics2D.OverlapCircleAll(frontCheckPoint.position, checkRadius, whatIsGround);
 
         isTouchingFront = (colliders.Length > 0);
     }
 
     private void CheckRoof()
     {
-        var colliders = Physics2D.OverlapCircleAll(RoofCheckPoint.position, checkRadius, WhatIsGround);
+        var colliders = Physics2D.OverlapCircleAll(roofCheckPoint.position, checkRadius, whatIsGround);
 
         isTouchingRoof = (colliders.Length > 0);
     }
 
     private void CheckGrounded()
     {
-        var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsGround);
+        var colliders = Physics2D.OverlapCircleAll(groundCheckPoint.position, checkRadius, whatIsGround);
 
         isGrounded =  (colliders.Length > 0);
-
-        //if (!wasGrounded && isGrounded) SendMessage("OnLanding");
-        //wasGrounded = isGrounded;
     }
 
     private void CheckPlatformed()
     {
-        var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsPlatform);
+        var colliders = Physics2D.OverlapCircleAll(groundCheckPoint.position, checkRadius, whatIsPlatform);
 
         isPlatformGround = (colliders.Length > 0);
         if (isPlatformGround) CurrentPlatform = colliders[0].transform;
-
-        //if (!wasGrounded && isGrounded) SendMessage("OnLanding");
-        //wasGrounded = isGrounded;
     }
 
     private void CheckDistanceToGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(GroundCheckPoint.position, Vector2.down, 100, WhatIsGround);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheckPoint.position, Vector2.down, 100, whatIsGround);
 
         distanceToGround = hit.distance;
         groundAngle = Vector2.Angle(hit.normal,new Vector2(1,0));

@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class DeathTrigger : MonoBehaviour {
+public class DeathTrigger : MonoBehaviour 
+{
     public static Action OnDeath;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -11,7 +12,6 @@ public class DeathTrigger : MonoBehaviour {
 
     private void Die()
     {
-        // Invoke any method subscribed to the OnDeath event
         OnDeath?.Invoke();
     }
 }

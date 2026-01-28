@@ -9,7 +9,7 @@ public class AnimationManager : MonoBehaviour
     private bool facingRight, isMoving;
     private SpriteRenderer spriteRenderer;
     private float timer;
-    private int walkingIndex = 0, idleIndex = 0; // To know on which point of the array the animation is
+    private int walkingIndex = 0, idleIndex = 0; 
     private CollisionDetection collisionDetection;
 
     void Start()
@@ -34,11 +34,8 @@ public class AnimationManager : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-
         var inputVal = value.Get<Vector2>();
-
         isMoving = inputVal.x != 0;
-
         if (inputVal.x > 0)
         {
             facingRight = true;
@@ -47,7 +44,6 @@ public class AnimationManager : MonoBehaviour
         {
             facingRight = false;
         }
-
     }
 
     void Walking()
